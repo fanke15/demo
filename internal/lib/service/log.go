@@ -22,21 +22,21 @@ var (
 	defaultKV         = make([]interface{}, define.Zero)
 )
 
-type log struct {
+type Log struct {
 	zapLog *zap.Logger
 }
 
-// 项目初始化
-func GetLog() *log {
-	return &log{zapLog}
+// GetLog 项目初始化
+func GetLog() *Log {
+	return &Log{zapLog}
 }
 
-func (l *log) Info(errMsg string, others ...interface{}) {
+func (l *Log) Info(errMsg string, others ...interface{}) {
 	filed := customKV(others...)
 	l.zapLog.Info(errMsg, filed...)
 }
 
-func (l *log) Error(errMsg string, others ...interface{}) {
+func (l *Log) Error(errMsg string, others ...interface{}) {
 	filed := customKV(others...)
 	l.zapLog.Error(errMsg, filed...)
 }

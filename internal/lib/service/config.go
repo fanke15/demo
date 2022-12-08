@@ -10,11 +10,13 @@ import (
 
 // 全局配置项
 type (
-	config struct {
+	Config struct {
 		Port    int                        `json:"port"`
 		Mod     string                     `json:"mod"`
-		Version string                     `json:"version"`
-		Mysqls  map[define.ChainName]mysql `json:"mysqls"`
+		Version float64                    `json:"version"`
+		Network string                     `json:"network"`
+		Mysql   map[define.ChainName]mysql `json:"mysql"`
+		Redis   map[string]redis           `json:"redis"`
 	}
 
 	// 子项配置
@@ -31,14 +33,21 @@ type (
 		SSLMode    bool   `json:"ssl_mode" mapstructure:"ssl_mode"`
 		Debug      bool   `json:"debug" mapstructure:"debug"`
 	}
+
+	redis struct {
+		Host     string `json:"host" mapstructure:"host"`
+		Port     string `json:"port" mapstructure:"port"`
+		Password string `json:"password" mapstructure:"password"`
+		DB       int    `json:"database" mapstructure:"database"`
+	}
 )
 
 var (
-	conf            *config
+	conf            *Config
 	defaultConfName = "sys"
 )
 
-func GetConfig() *config {
+func GetConfig() *Config {
 	return conf
 }
 

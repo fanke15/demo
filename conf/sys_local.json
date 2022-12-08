@@ -1,12 +1,12 @@
 {
     "port": 8080,
     "mod": "dev",
-    "mysqls": {
+    "mysql": {
         "default": {
             "type": "mysql",
             "user_name": "root",
-            "password": "zkf123456",
-            "database": "eth2",
+            "password": "",
+            "database": "ethereum_demo",
             "port": 3306,
             "address": "127.0.0.1",
             "parameters": "loc=UTC",
@@ -14,19 +14,14 @@
             "max_open": 0,
             "ssl_mode": false,
             "debug": true
-        },
-        "ethereum": {
-            "type": "mysql",
-            "user_name": "root",
-            "password": "zkf123456",
-            "database": "eth2",
-            "port": 3306,
-            "address": "127.0.0.1",
-            "parameters": "loc=UTC",
-            "max_idle": 0,
-            "max_open": 0,
-            "ssl_mode": false,
-            "debug": true
+        }
+    },
+    "redis": {
+        "default": {
+            "host": "127.0.0.1",
+            "port": "6379",
+            "auth": "",
+            "database": "0"
         }
     }
 }

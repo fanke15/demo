@@ -12,6 +12,9 @@ var configName = flag.String("f", "sys", "the config file")
 func main() {
 	flag.Parse()
 
-	service.SetConfPath(*configName, *configDepth)
-	service.NewConfig()
+	init := service.New(*configDepth)
+	init.SetConfName(*configName)
+	init.SetLogMsgPrefix("network", define.EthereumName)
+	init.SetLogDirName("logfiles")
+	init.Init()
 }

@@ -1,4 +1,4 @@
-// define 应用自定义类型描述文件
+// Package define 应用自定义类型描述文件
 package define
 
 type (

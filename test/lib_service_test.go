@@ -14,7 +14,7 @@ func TestInitConfig(t *testing.T) {
 
 	fmt.Println(1111, conf.Mod, conf.Port, conf.Version)
 
-	fmt.Println(2222, conf.Mysqls["default"])
+	fmt.Println(2222, conf.Mysql["default"])
 }
 
 func TestInitLog(t *testing.T) {

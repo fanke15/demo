@@ -9,6 +9,10 @@ import (
 var configName = flag.String("f", "sys_local", "the config file")
 
 func init() {
-	service.New(define.One).SetConfName(*configName).
-		SetLogDirName("logs").SetLogMsgPrefix("service", "logTest").Init()
+	sn := service.New(define.One)
+	sn.SetConfName(*configName)
+	sn.SetLogDirName("logs")
+	sn.SetLogMsgPrefix("service", "logTest")
+	sn.Init()
+
 }

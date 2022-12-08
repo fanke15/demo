@@ -69,7 +69,7 @@ func initDB(dbName ...define.ChainName) {
 
 func openOrm(dbname define.ChainName) (*gorm.DB, error) {
 	var (
-		info = GetConfig().Mysqls[dbname] // 获取配置信息进行连接
+		info = GetConfig().Mysql[dbname] // 获取配置信息进行连接
 		lc   = logger.Config{
 			SlowThreshold:             200 * time.Millisecond, // 慢 SQL 阈值
 			LogLevel:                  logger.Silent,          // Log level
